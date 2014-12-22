@@ -25,14 +25,36 @@
         fontSize:'20dp',
     },
 },
+"#country": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	width:'100%',
+	left:'70dp',
+	top:'46dp',
+    font: {
+        fontWeight: 'normal',
+        fontSize:'12dp',
+    },
+},
 "#desc": {
 	color: '#333',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	width:'100%',
 	left:'70dp',
-	top:'45dp',
+	top:'60dp',
     font: {
         fontWeight: 'normal',
+    },
+},
+"#local": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	width:'100%',
+	left:'25px',
+	top:'78dp',
+    font: {
+        fontWeight: 'normal',
+        fontSize: '10dp',
     },
 },
 "#temp": {

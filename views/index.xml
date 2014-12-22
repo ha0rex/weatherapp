@@ -1,5 +1,10 @@
 <Alloy>
-    <Window>
-    	<View id="mainView"></View>
-    </Window>
+    	<NavigationWindow id="navgroup" platform="ios">
+    		<Window title="WeatherApp">
+                <RightNavButton>
+                    <Button id="addNew">+</Button>
+                </RightNavButton>
+                <View id="mainView"></View>
+    		</Window>
+    	</NavigationWindow>
 </Alloy>

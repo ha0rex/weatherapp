@@ -9,7 +9,11 @@ exports.getName = function() {
     return exports.name;
 };
 
-exports.update = function() {
+exports.setLocal = function() {
+	exports.local=true;
+};
+
+exports.update = function(callback) {
 	//exports.id=id;
 	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=gmmgzuuef5tujyrmh88pq6fp&q="+Ti.Network.encodeURIComponent(exports.name)+"&format=json";
 	var client = Ti.Network.createHTTPClient({
@@ -26,15 +30,24 @@ exports.update = function() {
 		    	exports.tempMaxC = data.weather[0].tempMaxC;
 		    	exports.tempMinF = data.weather[0].tempMinF;
 		    	exports.tempMaxF = data.weather[0].tempMaxF;
+		    	exports.city = data.request[0].query.split(", ")[0];
+		    	exports.country = data.request[0].query.split(", ")[1];
 		    	
+		        $.name.text = exports.city;
+		        $.country.text = exports.country;
 		        $.temp.text = exports.tempC+"°C";
 		        $.tempRange.text = exports.tempMinC+"°C to "+exports.tempMaxC+"°C";
 		        $.desc.text = exports.desc;
 		        $.icon.image = exports.iconUrl;
+		        $.local.text = exports.local?'Local weather':'';
+		        
+		        if(callback)
+		       		callback(true);
 	       }
 	       else {
 	       		Ti.API.debug(JSON.parse(this.responseText).data.error);
-	       		alert('Error.');
+	       		if(callback)
+	       			callback(false);
 	       }
 	    },	
 	    // function called when an error occurs, including a timeout
@@ -48,38 +61,4 @@ exports.update = function() {
 	client.open("GET", url);
 	// Send the request.
 	client.send();		
-};
-
-exports.setLocal = function() {
-	if (Ti.Geolocation.locationServicesEnabled) {
-	    Titanium.Geolocation.purpose = 'Get Current Location';
-	    Titanium.Geolocation.getCurrentPosition(function(e) {
-	        if (e.error) {
-	            Ti.API.error('Error: ' + e.error);
-	        } else {
-		        var longitude = e.coords.longitude;
-		        var latitude = e.coords.latitude;//
-		 
-		        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
-		        var maprequest = Ti.Network.createHTTPClient({
-		             onload : function(e) {
-		                var data = JSON.parse(this.responseText);
-		                var address = data.results[0];
-		                var str = address.formatted_address.split(", ");
-		                selected_location = str[str.length-3];
-		                var sugg_loc = selected_location;
-		                exports.setName(sugg_loc);
-		             },
-		             onerror : function(e) {
-		 
-		             },
-		             timeout : 5000
-		         });
-		         maprequest.open("GET", url);
-		         maprequest.send();
-	        }
-	    });
-	} else {
-	    alert('Please enable location services');
-	}	
 };

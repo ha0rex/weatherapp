@@ -1,3 +1,4 @@
 <Alloy>
-	<TableView id="cityList" />
+	<TableView id="cityList" editable="true">
+	</TableView>
 </Alloy>

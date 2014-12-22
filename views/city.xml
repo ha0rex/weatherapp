@@ -2,8 +2,10 @@
 	<View>
 		<ImageView id="icon"></ImageView>
 		<Label id="name" />
+		<Label id="country" />
 		<Label id="desc" />
 		<Label id="temp" />
 		<Label id="tempRange" />
+		<Label id="local" />
 	</View>
 </Alloy>
