@@ -56,7 +56,6 @@ exports.update = function(callback) {
 	    // function called when an error occurs, including a timeout
 	    onerror : function(e) {
 	        Ti.API.debug(e.error);
-	        alert('error');
 	    },
 	    timeout : 5000  // in milliseconds
 	});
