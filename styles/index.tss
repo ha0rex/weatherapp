@@ -1,19 +1,12 @@
 // Default Styles
-".win1" : {
-    color: 'gray',
-    top: '25dp',
-    left: '10dp',
-    font: {
-        fontSize: '12dp'
-    },
-    
-},
-"#kurva" : {
-    color: 'gray',
-    bottom: '20dp',
+"View" : {
+    width: '100%',
+    height: '100%',
+    bottom: '0dp',
     font: {
         fontSize: '9dp'
-    }
+    },
+    bakgroundColor:'red',
 },
 "#title" : {
     color: 'black',
@@ -25,7 +18,7 @@
 },
 "Window" : {
     layout : 'vertical',
-    backgroundColor : 'white',
+    backgroundColor : 'red',
     backgroundImage: 'http://travelfeatured.com/wp-content/uploads/2014/01/Budapest-4.jpg',
 },
 "ScrollView" : {

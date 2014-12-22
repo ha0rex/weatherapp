@@ -1,8 +1,5 @@
 <Alloy>
     <Window>
-        <Label id="title" textid="title"/>
-        <TableView id="foscsi">
-        </TableView>
-        <Label id="info">TextViewer by BluthCo</Label>
+    	<View id="mainView"></View>
     </Window>
 </Alloy>

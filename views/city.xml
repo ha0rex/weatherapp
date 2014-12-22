@@ -1,3 +1,6 @@
 <Alloy>
-	<Label id="content" textid="content"/>
+	<View>
+		<Label id="name" />
+		<Label id="temp" />
+	</View>
 </Alloy>

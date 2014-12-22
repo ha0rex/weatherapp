@@ -1,0 +1,26 @@
+"View" : {
+    width: '100%',
+    height: '200px',
+    bottom: '0dp',
+    font: {
+        fontSize: '9dp'
+    },
+    
+},
+"#name": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	width:'100%',
+	left:'15dp',
+	top:'5dp',
+}
+"#temp": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width:'200px',
+	right:'15dp',
+	top:'10dp',
+    font: {
+        fontSize: '40dp',
+    },
+}

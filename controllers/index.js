@@ -1,13 +1,11 @@
-var cities=['Debrecen', 'Amsterdam', 'Budapest', 'Bucharest'];
+var cities = ['Debrecen', 'Amsterdam', 'Budapest', 'Bucharest'];
 
-for (i in cities) {
-	var name=cities[i];
-	cities[i] = Alloy.createController('city');
-	cities[i].setName(name);
-	cities[i].update(function(e) {
-		var row = Ti.UI.createTableViewRow({ title:e.name+': '+e.temp_C+'C' });	
-		$.foscsi.appendRow(row);		
-	});
-}
+var cityList = Alloy.createController('cityList');
+cityList.setData(cities);
+$.mainView.add(cityList.getView());
+
+//var local=Alloy.createController('city');
+//local.setLocal();
+//cities.push(local);
 
 $.index.open();
