@@ -7,20 +7,51 @@
     },
     
 },
+"#icon": {
+	width:'100px',
+	height:'100px',
+	left:'25px',
+	borderWidth:'4px',
+	borderColor:'#b2b2b2',
+},
 "#name": {
 	color: '#333',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	width:'100%',
-	left:'15dp',
-	top:'5dp',
-}
+	left:'70dp',
+	top:'25dp',
+    font: {
+        fontWeight: 'normal',
+        fontSize:'20dp',
+    },
+},
+"#desc": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	width:'100%',
+	left:'70dp',
+	top:'45dp',
+    font: {
+        fontWeight: 'normal',
+    },
+},
 "#temp": {
 	color: '#333',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 	width:'200px',
 	right:'15dp',
-	top:'10dp',
+	top:'20dp',
     font: {
         fontSize: '40dp',
+    },
+}
+"#tempRange": {
+	color: '#333',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	width:'200px',
+	right:'15dp',
+	top:'70dp',
+    font: {
+        fontSize: '12dp',
     },
 }

@@ -6,7 +6,7 @@
     font: {
         fontSize: '9dp'
     },
-    bakgroundColor:'red',
+    bakgroundColor:'#fff',
 },
 "#title" : {
     color: 'black',
@@ -18,7 +18,7 @@
 },
 "Window" : {
     layout : 'vertical',
-    backgroundColor : 'red',
+    backgroundColor : '#fff',
     backgroundImage: 'http://travelfeatured.com/wp-content/uploads/2014/01/Budapest-4.jpg',
 },
 "ScrollView" : {

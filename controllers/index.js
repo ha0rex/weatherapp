@@ -1,4 +1,4 @@
-var cities = ['Debrecen', 'Amsterdam', 'Budapest', 'Bucharest'];
+var cities = ['*', 'Debrecen', 'Amsterdam', 'Budapest', 'Bucharest'];
 
 var cityList = Alloy.createController('cityList');
 cityList.setData(cities);

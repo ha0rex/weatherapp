@@ -1,22 +1,42 @@
 exports.setName = function(name) {
     exports.name=name;
     $.name.text=name;
+    
+    return exports;
 };
 
 exports.getName = function() {
     return exports.name;
 };
 
-exports.update = function(id, callback) {
-	exports.id=id;
-	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=gmmgzuuef5tujyrmh88pq6fp&q="+exports.name+"&format=json";
+exports.update = function() {
+	//exports.id=id;
+	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=gmmgzuuef5tujyrmh88pq6fp&q="+Ti.Network.encodeURIComponent(exports.name)+"&format=json";
 	var client = Ti.Network.createHTTPClient({
 	    // function called when the response data is available
 	    onload : function(e) {
-	    	exports.temp_C=JSON.parse(this.responseText).data.current_condition[0].temp_C;
-	        $.temp.text=exports.temp_C+"°C";
-	        callback(exports);
-	    },
+	    	if(!JSON.parse(this.responseText).data.error) {
+		    	var data=JSON.parse(this.responseText).data;
+		    		    	
+		    	exports.tempC = data.current_condition[0].temp_C;
+		    	exports.tempK = data.current_condition[0].temp_K;
+		    	exports.desc = data.current_condition[0].weatherDesc[0].value;
+		    	exports.iconUrl = data.current_condition[0].weatherIconUrl[0].value;
+		    	exports.tempMinC = data.weather[0].tempMinC;
+		    	exports.tempMaxC = data.weather[0].tempMaxC;
+		    	exports.tempMinF = data.weather[0].tempMinF;
+		    	exports.tempMaxF = data.weather[0].tempMaxF;
+		    	
+		        $.temp.text = exports.tempC+"°C";
+		        $.tempRange.text = exports.tempMinC+"°C to "+exports.tempMaxC+"°C";
+		        $.desc.text = exports.desc;
+		        $.icon.image = exports.iconUrl;
+	       }
+	       else {
+	       		Ti.API.debug(JSON.parse(this.responseText).data.error);
+	       		alert('Error.');
+	       }
+	    },	
 	    // function called when an error occurs, including a timeout
 	    onerror : function(e) {
 	        Ti.API.debug(e.error);
@@ -47,9 +67,8 @@ exports.setLocal = function() {
 		                var address = data.results[0];
 		                var str = address.formatted_address.split(", ");
 		                selected_location = str[str.length-3];
-		                var sugg_loc = selected_location.toUpperCase();
+		                var sugg_loc = selected_location;
 		                exports.setName(sugg_loc);
-		                exports.update();
 		             },
 		             onerror : function(e) {
 		 
