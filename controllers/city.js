@@ -1,3 +1,4 @@
+//Function to set the name of a city
 exports.setName = function(name) {
     exports.name=name;
     $.name.text=name;
@@ -5,16 +6,18 @@ exports.setName = function(name) {
     return exports;
 };
 
+//Function to get the name of a city
 exports.getName = function() {
     return exports.name;
 };
 
+//Function to set a city as local
 exports.setLocal = function() {
 	exports.local=true;
 };
 
+//Function to update a city's weather data
 exports.update = function(callback) {
-	//exports.id=id;
 	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=gmmgzuuef5tujyrmh88pq6fp&q="+Ti.Network.encodeURIComponent(exports.name)+"&format=json";
 	var client = Ti.Network.createHTTPClient({
 	    // function called when the response data is available
