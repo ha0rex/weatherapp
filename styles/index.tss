@@ -1,15 +1,47 @@
-".container": {
-	backgroundColor:"white"
-}
-
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
-}
-
-"#label": {
-	font: {
-		fontSize: 12
-	}
+// Default Styles
+".win1" : {
+    color: 'gray',
+    top: '25dp',
+    left: '10dp',
+    font: {
+        fontSize: '12dp'
+    },
+    
+},
+"#kurva" : {
+    color: 'gray',
+    bottom: '20dp',
+    font: {
+        fontSize: '9dp'
+    }
+},
+"#title" : {
+    color: 'black',
+    top: '15dp',
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'bold'
+    }
+},
+"Window" : {
+    layout : 'vertical',
+    backgroundColor : 'white',
+    backgroundImage: 'http://travelfeatured.com/wp-content/uploads/2014/01/Budapest-4.jpg',
+},
+"ScrollView" : {
+    height : '415dp'
+},
+// Query styles
+"#info[if=Alloy.Globals.isIos7Plus]" : {
+    font : { textStyle : Ti.UI.TEXT_STYLE_FOOTNOTE }
+},
+"#title[if=Alloy.Globals.isIos7Plus]" : {
+    top: '25dp', // compensate for the status bar on iOS 7
+    font : { textStyle : Ti.UI.TEXT_STYLE_HEADLINE }
+},
+"#content[if=Alloy.Globals.isIos7Plus]" : {
+    font : { textStyle : Ti.UI.TEXT_STYLE_CAPTION1 }
+},
+"ScrollView[if=Alloy.Globals.iPhoneTall]" : {
+    height : '500dp'
 }

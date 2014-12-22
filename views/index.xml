@@ -1,5 +1,9 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+    <Window>
+        <Label id="title" textid="title"/>
+        <ScrollView id="foscsi">
+            <Label id="content" textid="content"/>
+        </ScrollView>
+        <Label id="info">TextViewer by BluthCo</Label>
+    </Window>
 </Alloy>
