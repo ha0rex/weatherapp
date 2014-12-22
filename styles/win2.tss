@@ -1,8 +1,0 @@
-"#label[if=$.args.fooBar]" : {
- 'text' : 'Foobar',
- 'color' : 'blue'
-}
-"#label[if=$.args.fooBaz]" : {
- 'text' : 'Foobaz',
- 'color' : 'red'
-}

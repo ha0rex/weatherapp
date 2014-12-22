@@ -1,6 +1,0 @@
-<Alloy>
-    <Window>
-        <Label if="$.args.fooBar" color="blue">Foobar</Label>
-        <Label if="$.args.fooBaz" color="red">Foobaz</Label>
-    </Window>
-</Alloy>
